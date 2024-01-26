@@ -12,10 +12,10 @@ import Link from "next/link";
 
 interface HomeProps {
   products: {
-    id: string,
-    name: string,
+    id: string
+    name: string
     imageUrl: string
-    price: number
+    price: string
   }[]
 }
 
@@ -31,7 +31,7 @@ export default function Home({ products }: HomeProps) {
     <HomeContainer ref={sliderRef} className="keen-slider">
       {products && products.map(product => {
         return (
-          <Link href={`/product/${product.id}`} key={product.id}>
+          <Link href={`/product/${product.id}`} key={product.id} prefetch={false}>
             <Product className="keen-slider__slide">
               <Image src={product.imageUrl} width={520} height={480} alt=""/>
 
